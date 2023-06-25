@@ -18,7 +18,9 @@ add_executable(
 
 target_link_libraries(
     driver_test
+    car
     GTest::gtest_main
+    GTest::gmock_main
 )
 
 gtest_discover_tests(driver_test)
