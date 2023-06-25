@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_C_COMPILER "/usr/bin/gcc")
+set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+
+# set the project name and version
+project(Driver VERSION 1.0)
+
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+add_executable(driver main.cpp)
+
+add_subdirectory(car)
+target_link_libraries(driver PUBLIC car)
