@@ -1,86 +1,92 @@
 #include "cars.h"
 
-std::string BMW::start()
+std::string Car::name()
 {
-    return "bmw start!";
+    return "car";
+}
+std::string Car::start()
+{
+    return name() + " start!";
 }
 
-std::string BMW::stop()
+std::string Car::stop()
 {
-    return "bmw stop!";
+    return name() + " stop!";
 }
 
-std::string BMW::straight(int distance)
+std::string Car::turn(Direction direction)
 {
-    return "bmw go straight " + std::to_string(distance);
+    if (direction == Direction::left)
+    {
+        return name() + " turn left!";
+    }
+    return name() + " turn right!";
 }
 
-std::string BMW::right()
+std::string Car::straight(int distance)
 {
-    return "bmw turn right!";
+    return name() + " go straight " + std::to_string(distance);
 }
 
-std::string BMW::left()
+std::string NoCar::name()
 {
-    return "bmw turn left!";
+    return "nocar";
 }
 
+std::string NoCar::start()
+{
+    return "driver don't kwon how to start!";
+}
+
+std::string NoCar::stop()
+{
+    return "driver don't kwon how to stop!";
+}
+
+std::string NoCar::turn(Direction direction)
+{
+    if (direction == Direction::left)
+    {
+        return "driver don't kwon how to turn left!";
+    }
+    return "driver don't kwon how to turn right!";
+}
+
+std::string NoCar::straight(int distance)
+{
+    return "driver don't kwon how to go straight!";
+}
+
+std::string NoCar::hiBMW()
+{
+    return "driver don't kwon how to say hi!";
+}
+
+std::string NoCar::transform()
+{
+    return "driver don't kwon how to transform!";
+}
+
+std::string BMW::name()
+{
+    return "bmw";
+}
 std::string BMW::hiBMW()
 {
     return "bmw say hi!";
 }
 
-std::string Audi::start()
+std::string Benz::name()
 {
-    return "audi start!";
-}
-
-std::string Audi::stop()
-{
-    return "audi stop!";
-}
-
-std::string Audi::straight(int distance)
-{
-    return "audi go straight " + std::to_string(distance);
-}
-
-std::string Audi::right()
-{
-    return "audi turn right!";
-}
-
-std::string Audi::left()
-{
-    return "audi turn left!";
-}
-
-std::string Benz::start()
-{
-    return "benz start!";
-}
-
-std::string Benz::stop()
-{
-    return "benz stop!";
-}
-
-std::string Benz::straight(int distance)
-{
-    return "benz go straight " + std::to_string(distance);
-}
-
-std::string Benz::right()
-{
-    return "benz turn right!";
-}
-
-std::string Benz::left()
-{
-    return "benz turn left!";
+    return "benz";
 }
 
 std::string Benz::transform()
 {
     return "benz transfrom!";
+}
+
+std::string Audi::name()
+{
+    return "audi";
 }

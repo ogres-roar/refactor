@@ -55,25 +55,6 @@ std::vector<std::string> Driver::drive(Route route)
             {
                 if (_car == CarType::audi)
                 {
-                    ret.push_back(_audi.right());
-                }
-                else if (_car == CarType::benz)
-                {
-                    ret.push_back(_benz.right());
-                }
-                else if (_car == CarType::bmw)
-                {
-                    ret.push_back(_bmw.right());
-                }
-                else
-                {
-                    ret.push_back("driver don't kwon how to turn right!");
-                }
-            }
-            else
-            {
-                if (_car == CarType::audi)
-                {
                     ret.push_back(_audi.left());
                 }
                 else if (_car == CarType::benz)
@@ -87,6 +68,25 @@ std::vector<std::string> Driver::drive(Route route)
                 else
                 {
                     ret.push_back("driver don't kwon how to turn left!");
+                }
+            }
+            else
+            {
+                if (_car == CarType::audi)
+                {
+                    ret.push_back(_audi.right());
+                }
+                else if (_car == CarType::benz)
+                {
+                    ret.push_back(_benz.right());
+                }
+                else if (_car == CarType::bmw)
+                {
+                    ret.push_back(_bmw.right());
+                }
+                else
+                {
+                    ret.push_back("driver don't kwon how to turn right!");
                 }
             }
         }
@@ -116,7 +116,7 @@ std::vector<std::string> Driver::drive(Route route)
             {
                 ret.push_back(_bmw.hiBMW());
             }
-            else
+            else if (_car == CarType::none)
             {
                 ret.push_back("driver don't kwon how to say hi!");
             }
@@ -127,7 +127,7 @@ std::vector<std::string> Driver::drive(Route route)
             {
                 ret.push_back(_benz.transform());
             }
-            else
+            else if (_car == CarType::none)
             {
                 ret.push_back("driver don't kwon how to transform!");
             }

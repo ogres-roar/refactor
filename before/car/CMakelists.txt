@@ -1,1 +1,26 @@
+cmake_minimum_required(VERSION 3.14)
+include(FetchContent)
+enable_testing()
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG v1.13.0 # release-1.18.0
+)
+FetchContent_MakeAvailable(googletest)
+
+include(GoogleTest)
 add_library(car cars.cpp driver.cpp)
+
+add_executable(
+    driver_test
+    driver_test.cpp
+)
+
+target_link_libraries(
+    driver_test
+    car
+    GTest::gtest_main
+    GTest::gmock_main
+)
+
+gtest_discover_tests(driver_test)

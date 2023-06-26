@@ -20,9 +20,11 @@ int main()
     {
         std::cout << show << std::endl;
     }
-    li.setAudi(Audi());
+    auto audi = new Audi();
+    li.setCar(audi);
     rt = li.drive(r);
 
+    delete audi;
     for (auto show : rt)
     {
         std::cout << show << std::endl;

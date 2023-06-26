@@ -1,5 +1,11 @@
 #include <string>
 
+enum Direction
+{
+    right,
+    left,
+};
+
 enum CarType
 {
     none,
@@ -8,34 +14,44 @@ enum CarType
     benz
 };
 
-class BMW
+class Car
 {
 public:
-    std::string start();
-    std::string stop();
-    std::string right();
-    std::string left();
-    std::string straight(int distance);
+    virtual std::string name();
+    virtual std::string start();
+    virtual std::string stop();
+    virtual std::string turn(Direction direction);
+    virtual std::string straight(int distance);
+};
+
+class NoCar : public Car
+{
+public:
+    std::string name();
     std::string hiBMW();
-};
-
-class Audi
-{
-public:
-    std::string start();
-    std::string stop();
-    std::string right();
-    std::string straight(int distance);
-    std::string left();
-};
-
-class Benz
-{
-public:
-    std::string start();
-    std::string stop();
-    std::string right();
-    std::string left();
-    std::string straight(int distance);
     std::string transform();
+    std::string start();
+    std::string stop();
+    std::string turn(Direction direction);
+    std::string straight(int distance);
+};
+
+class BMW : public Car
+{
+public:
+    std::string hiBMW();
+    std::string name();
+};
+
+class Audi : public Car
+{
+public:
+    std::string name();
+};
+
+class Benz : public Car
+{
+public:
+    std::string transform();
+    std::string name();
 };

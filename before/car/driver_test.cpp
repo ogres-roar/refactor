@@ -79,10 +79,8 @@ TEST(driver_test, bmw)
             .action = Action::stop,
         }};
     Driver li("li");
-    auto bmw = new BMW();
-    li.setCar(bmw);
+    li.setBmw(BMW());
     auto rt = li.drive(r);
-    delete bmw;
     EXPECT_THAT(rt, ElementsAreArray({"bmw start!",
                                       "bmw go straight 10",
                                       "bmw turn left!",
@@ -124,10 +122,8 @@ TEST(driver_test, benz)
             .action = Action::stop,
         }};
     Driver li("li");
-    auto benz = new Benz();
-    li.setCar(benz);
+    li.setBenz(Benz());
     auto rt = li.drive(r);
-    delete benz;
     EXPECT_THAT(rt, ElementsAreArray({"benz start!",
                                       "benz go straight 10",
                                       "benz transfrom!",
@@ -169,10 +165,8 @@ TEST(driver_test, audi)
             .action = Action::stop,
         }};
     Driver li("li");
-    Audi *audi = new Audi();
-    li.setCar(audi);
+    li.setAudi(Audi());
     auto rt = li.drive(r);
-    delete audi;
     EXPECT_THAT(rt, ElementsAreArray({"audi start!",
                                       "audi go straight 10",
                                       "audi turn left!",

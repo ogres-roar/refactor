@@ -1,5 +1,5 @@
 #include <vector>
-
+#include <map>
 #include "cars.h"
 
 enum Action
@@ -10,12 +10,6 @@ enum Action
     straight,
     hi,
     transform,
-};
-
-enum Direction
-{
-    right,
-    left,
 };
 
 struct Move
@@ -30,16 +24,21 @@ using Route = std::vector<Move>;
 class Driver
 {
 public:
+    std::string (Driver::*action)(Move);
+    template <typename T>
+    T getAction(Move m);
     std::vector<std::string> drive(Route route);
-    void setBenz(Benz benz);
-    void setAudi(Audi audi);
-    void setBmw(BMW bmz);
+    void setCar(Car *car);
+    std::string move(Move m);
+    std::string start(Move m);
+    std::string stop(Move m);
+    std::string turn(Move m);
+    std::string straight(Move m);
+    std::string hi(Move m);
+    std::string transform(Move m);
     Driver(std::string name);
 
 private:
-    CarType _car;
+    Car *_car;
     std::string _name;
-    Benz _benz;
-    Audi _audi;
-    BMW _bmw;
 };
